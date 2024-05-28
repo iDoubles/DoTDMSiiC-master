@@ -1,0 +1,34 @@
+<div class="Login_page d-flex flex-column justify-content-center align-items-center">
+  <div class="Box Box__small Box__small_form Box__radius Box__opacity mb-4">
+    <h1 class="h3 text-center mb-0">DoTDMSiiC</h1>
+  </div>
+
+  <div class="Box Box__small Box__small_form Box__radius Box__opacity">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+      <div class="form-floating mb-3">
+        <%= f.email_field :email, class:"form-control", autofocus: true, autocomplete: "email", placeholder: "name@example.com" %>
+        <%= f.label :email, "Електронна адреса" %>
+      </div>
+      <div class="form-floating mb-3">
+        <%= f.password_field :password, class:"form-control", autocomplete: "current-password", placeholder: "Password" %>
+        <%= f.label :password, "Пароль" %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="field">
+          <%= f.check_box :remember_me, class: "custom-checkbox" %>
+          <%= f.label :remember_me, "Запам'ятати мене" %>
+        </div>
+      <% end %>
+
+      <div class="actions mt-3">
+        <%= f.submit "Підтвердити", class: "btn btn__primary btn__radius" %>
+      </div>
+    <% end %>
+
+    <div class=" mt-4">
+      <%= render "users/shared/links" %>
+    </div>
+  </div>
+</div>

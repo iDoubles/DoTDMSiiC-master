@@ -1,0 +1,11 @@
+<div class="col-12 col-md-3">
+  <%= link_to project, class:"mb-3 #{ "disable" if ((project.finish_at.to_date - DateTime.now.to_date).to_i) < 0}" do %>
+    <div class="Box Box__card Box__small d-flex justify-content-center align-items-center mb-4">
+        <h5 class="text-center"> <%= project.name %></h5>
+        <div class="badge bage bage__bottom">
+          <%= ((project.finish_at.to_date - DateTime.now.to_date).to_i) < 0 ? "Проект завершено" : "Залишилось #{ (project.finish_at.to_date - DateTime.now.to_date).to_i} днів"%>
+          
+        </div>
+    </div>
+  <%end%>
+</div>

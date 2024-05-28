@@ -1,0 +1,16 @@
+<div class="row mt-5">
+  <div class="col-12 col-md-4">
+    <%= image_tag "/user.svg", height: 300, alt: @user.email, title: @user.email %>
+
+  </div>
+  <div class="col-12 col-md-8">
+    <h1><%=@user.name%></h1>
+    <div class="">
+      <p>Вік: &nbsp; <span>24</span></p>
+      <p>Працює від: &nbsp; <span><%= @user.created_at.strftime("%d.%m.%Y")%></span></p>
+      <p>Посада: &nbsp; <span><%= @user.position%></span></p>
+      <p>Виконані проекти: &nbsp; <span><%= @user.projects.finished.count %></span></p>
+      <p>Всього проектів: &nbsp; <span><%= @user.projects.count%></span></p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+<%= turbo_stream.replace "#{dom_id(@topic)}_#{dom_id(Task.new)}_form" do %>
+  <%= render 'form', task: @topic.tasks.build, topic: @topic %>
+<% end %>
+<%= turbo_stream.append "#{dom_id(@topic)}_list" do %>
+  <%= render @task, topic: @topic %>
+<% end %>

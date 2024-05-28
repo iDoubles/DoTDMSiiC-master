@@ -1,0 +1,12 @@
+<div class="col-12 p-2 Box Box__task Box__shadow p-1 pointer"
+    data-bs-toggle="modal"
+    data-bs-target="#<%=dom_id(task)%>"
+>
+  <%=task.name%>
+  <%if task.users%>
+    <div class="d-flex mt-2 justify-content-end modal_content__persons">
+      <%= render partial: "user", collection: task.users  %>
+    </div>
+  <%end%>
+</div>
+<%= render "tasks/task/modal", task:task%>

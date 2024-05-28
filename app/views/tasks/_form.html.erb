@@ -1,0 +1,13 @@
+<%= form_with model: [@project, task], id: "#{dom_id(task.topic)}_#{dom_id(task)}_form" do |f| %>
+  <div class="form-floating mb-3">
+    <%= f.text_field :name, class: "form-control", placeholder: "Напишіть назву задачі тут" %>
+    <%= f.label :name, "Назва задачі", class: "form-floating__label" %>
+  </div>
+  <div class="form mb-3">
+    <%= f.rich_text_area :description, id: "description_#{topic.id}", class: "form-control", placeholder: "Напишіть опис задачі тут" %>
+  </div>
+  <%= f.hidden_field :topic_id %>
+  <div class="text-center">
+    <%= f.submit "Добавити задачу", class: "btn btn__card w-100"%>
+  </div>
+<% end %>

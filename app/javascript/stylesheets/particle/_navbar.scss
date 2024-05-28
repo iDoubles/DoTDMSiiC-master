@@ -1,0 +1,65 @@
+.navbar {
+  background-color: $color-white;
+  color: $color-primary-dark;
+}
+
+.colored {
+  color: $color-primary-dark;
+}
+
+.nav-item {
+  .nav-link {
+    font-size: 1.125rem;
+    color: $color-primary-dark !important;
+    &:hover {
+      color: $color-primary-base !important;
+    }
+  }
+  &__margin {
+    margin-right: 3rem;
+  }
+}
+
+.bottom_of_navbar {
+  min-height: 50px;
+  background-color: $color-neutral-bg;
+}
+
+.notifications {
+  display: block;
+}
+
+.hide_block {
+  width: 0rem;
+  height: 0rem;
+  visibility: hidden;
+  display: none;
+}
+
+.navcard {
+  width: 18.75rem;
+  min-height: 10rem;
+  font-size: 0.875rem;
+  border: none;
+  .info {
+    h5 {
+      width: 20px;
+    }
+    p {
+      margin-bottom: 8px;
+      color: $color-black;
+      span {
+        font-weight: 700;
+      }
+    }
+  }
+  .exit {
+    height: 3.125rem;
+    background-color: $color-neutral-bg;
+    color: $color-primary-dark;
+  }
+}
+
+.cursor_pointer {
+  cursor: pointer;
+}

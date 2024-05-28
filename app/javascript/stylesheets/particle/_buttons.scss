@@ -1,0 +1,65 @@
+.btn{
+    width: 100%;
+    border-radius: $border-radius;
+
+    &__primary{
+        padding: .8rem;
+        font-weight: bold;
+        color: $color-white;
+        background-color: $color-primary-dark;
+        transition: all .5s ease-in;
+        &:hover{
+            background-color: $color-primary-base;
+            color: $color-white;
+        }
+    }
+
+    &__auto{
+        width: auto;
+    }
+
+    &__card{
+        width: 250px;
+        padding: 15px 40px 11px;
+        text-align: center;
+        font-weight: $font-weight-middle;
+        border-radius: $border-radius;
+        text-transform: uppercase;
+        color: $color-white;
+        background-color: $color-primary-dark;
+        transition: all .5s ease-in;
+        &:hover {
+            background-color: $color-primary-base;
+            color: $color-white;
+        }
+    }
+
+    &__mark{
+        // width: 200px;
+        padding: 5px;
+        margin-bottom: 5px;
+        font-size: .75rem;
+        font-weight: $font-weight-middle;
+        color: $color-white;
+        background-color: $color-neutral-text; 
+        border-radius: 0;
+        transition: all .5s ease-in;
+        &:hover{
+            background-color: $color-neutral-line;
+            color: $color-white;
+        }
+        span{
+            font-size: .75rem;
+            font-weight: $font-weight-title;
+        } 
+    }
+    &__text{
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        &:focus{
+            box-shadow: none;
+            outline: none;
+        }
+    }
+}

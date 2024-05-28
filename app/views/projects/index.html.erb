@@ -1,0 +1,23 @@
+<h1 class="text-center Box__maintitle my-5">Проекти</h1>
+<div class="">
+    <%= render @projects %>
+    <% if @projects.size.zero?%>
+    <h2 class="text-center">Нема доступних проектів</h2>
+  <%end %>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="projectsModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+    <div class="modal_content modal_content__padding">
+      <div class="modal_header">
+        <h5 class="my-0 modal_title " id="projectModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal_body">
+        <p class="modal_desc pb-2">Modal body text goes here.</p>
+        <a class="btn__card mt-4 modal_btn d-flex justify-content-center mx-auto" rel="nofollow" data-method="post" href="">Приєднатись</a>
+      </div>
+    </div>
+  </div>
+</div>

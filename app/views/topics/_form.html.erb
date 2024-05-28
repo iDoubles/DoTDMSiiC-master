@@ -1,0 +1,9 @@
+<%= form_with model: [@project, topic], id: "#{dom_id(topic)}_form" do |f| %>
+  <div class="form-floating mt-5 mb-3">
+    <%= f.text_field :name, class: "form-control", placeholder: "Напишіть назву категорії задач" %>
+    <%= f.label :name, "Назва категорії задач", class: "form-floating__label" %>
+  </div>
+  <div class="text-center">
+    <%= f.submit "Добавити категорію задач", class: "btn btn__card w-100"%>
+  </div>
+<% end %>

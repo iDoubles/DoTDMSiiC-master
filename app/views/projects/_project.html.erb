@@ -1,0 +1,34 @@
+<div class="col-12 m-3 <%= "d-none" if ((project.finish_at.to_date - DateTime.now.to_date).to_i) < 0 %>">
+  <div class="Box Box__padding">
+      <div class="d-flex row">
+        <div class="mb-4">
+          <h3 class="Box__title mb-0">
+            <%= project.name %>
+              <%= image_tag "info-circle.svg", width:24, height:24, title: "Дізнатися більше", class: "pointer", data: { bs_toggle: "modal", bs_target: "#projectsModal", bs_modaltitle: project.name, bs_modaldesc: project.description, bs_project: join_project_path(project)} %>
+          </h3>
+          <div class="badge bage bage__top">
+            Залишилось <%= (project.finish_at.to_date - DateTime.now.to_date).to_i%> днів
+          </div>
+        </div>
+        <div class="d-flex justify-content-between align-items-end">
+          <div class="d-flex row">
+            <span class="mb-3 text-black-50 fw-normal">
+              Старт: <span class="ms-3 text-dark fw-bolder"><%= project.start_at.strftime("%e.%m.%Y")%></span>
+            </span>
+            <span class="mb-3 text-black-50 fw-normal">
+              Фініш: <span class="ms-3 text-dark fw-bolder"><%= project.finish_at.strftime("%e.%m.%Y")%></span>
+            </span>
+          </div>
+          <div class="d-flex col row">
+            <span class="Box__infotitle">Бюджет</span>
+            <span class="Box__infotxt"><%=project.budget%>$</span>
+          </div>
+          <div class="d-flex col row">
+            <span class="Box__infotitle">Виконано</span>
+            <span class="Box__infotxt"><%= project.completed_tasks_count %> iз <%= project.tasks_count %></span>
+          </div>
+          <%=link_to "Приєднатись", join_project_path(project), method: :post, class:"btn__card"%>
+        </div>
+      </div>
+  </div>
+</div>

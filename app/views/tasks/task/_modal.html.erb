@@ -1,0 +1,42 @@
+<!-- Modal for task-->
+<div class="modal md-effect-11" id="<%=dom_id(task)%>" tabindex="-1" aria-hidden="true" >
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+    <div class="modal_content modal_content__padding">
+      <div class="modal_header mb-0">
+        <div>
+          <h5 class="my-0 modal_title"><%=task.name%></h5>
+          <p class="mt-1">у списку: <span class="modal_topic"><%=task.topic.name%></span></p>
+        </div>
+        <button type="button" class="btn-close mb-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal_body">
+        <div class="row">
+          <div class="col-8">
+            <div class="mb-3">
+              <p class="modal_content__title mb-1" >Учасники</p>
+              <div class="modal_content__persons ">
+                <%= render partial: "user", collection: task.users  %>
+              </div>
+            </div>
+            <div class="mb-3">
+              <h5 class="modal_content__title mb-2">Опис</h5>
+              <p class="modal_desc">
+                <%== task.description %>
+              </p>
+            </div>
+          </div>
+          <div class="col-4">
+            <h5 class="modal_content__title">Дії</h5>
+            <% unless task.users.exists?(current_user.id) %>
+              <%=link_to "Приєднатись", join_task_path(task), method: :post, class:"btn btn__mark"%>
+            <% end%>
+            <% task.project.topics.where.not(id: task.topic_id).each do |topic|%>
+              <%= link_to "Перемістити до: #{topic.name}", task_path(task, task: {topic_id: topic.id}), method: :patch, class:"btn btn__mark", data: { bs_dismiss: "modal"}%>
+            <%end%>
+            <%=link_to "Видалити", task_path(task), method: :delete, class:"btn btn__mark", data: { bs_dismiss: "modal"} %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

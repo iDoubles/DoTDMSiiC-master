@@ -1,0 +1,22 @@
+<div class="me-3 Box__grey_box">
+  <h3 class="Box__topic text-center mt-2"><%= topic.name %></h3>
+  <div class="Box__vs">
+    <div class="row m-0" id=<%="#{dom_id(topic)}_list"%>>
+      <%= render topic.tasks, topic: topic %>
+    </div>
+  </div>
+  <button class="btn btn__text mt-2" data-bs-toggle="modal" data-bs-target="#addTaskModal_<%= topic.id %>"><span class="me-3">+</span>Додати задачу</button>
+</div>
+<div class="modal fade" id="addTaskModal_<%= topic.id %>" tabindex="-1" aria-labelledby="addTaskModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal_content modal_content__padding">
+      <div class="modal_header">
+        <h5 class="my-0 modal_title " id="addTaskModalLabel"><span class="fw-normal">Добавити задачу до:</span> <%=topic.name%></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal_body">
+        <%= render "tasks/form", task: topic.tasks.build, topic: topic %>
+      </div>
+    </div>
+  </div>
+</div>

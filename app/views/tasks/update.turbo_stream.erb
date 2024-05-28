@@ -1,0 +1,8 @@
+<%= turbo_stream.update "#{dom_id(@topic)}_list" do %>
+  <%= render @topic.tasks, topic: @topic %>
+<%end%>
+<% if @topic.id != @old_topic%>
+  <%= turbo_stream.update "#{dom_id(@old_topic)}_list" do %>
+    <%= render @old_topic.tasks, topic: @old_topic %>
+  <%end%>
+<%end%>

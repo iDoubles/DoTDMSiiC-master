@@ -1,0 +1,15 @@
+  <% User.positions.each do |position|%>
+  <% users = @users.where(position: position)%>
+  <% next if users.size < 1%>
+  <h2 class="Box__maintitle Box__margins"><%= position.first%></h2>
+  <div class="splide users_splide" role="group">
+
+    <div class="splide__track">
+      <ul class="splide__list">
+        <%= render @users.where(position: position)%>
+      </ul>
+    </div>
+
+  </div>
+  <%end%>
+

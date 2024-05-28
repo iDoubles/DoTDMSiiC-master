@@ -1,0 +1,66 @@
+<nav class="navbar navbar-expand-lg navbar-light ">
+  <div class="container">
+    <button class="navbar-toggler shadow-none" type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"><i
+          class="fa fa-bars" aria-hidden="true"
+          style="color:#e6e6ff"></i></span>
+    </button>
+    <div>
+      <%= link_to root_path, class:"navbar-brand"  do %>
+      <%= image_tag "/logo.svg",  height: 60 %>
+      <%end%>
+    </div>
+    <div class="collapse navbar-collapse"
+      id="navbarCollapse">
+      <ul
+        class="navbar-nav ms-auto align-items-center mb-lg-0">
+        <li class="nav-item">
+          <%= link_to projects_my_path ,class:"nav-link  me-3"  do %>
+          Мої проекти
+          <%end%>
+        </li>
+        <li class="nav-item dropdown">
+          <%= image_tag "/user.svg",class:"cursor_pointer" ,id:"dropdownMenuButton1",data:{bs_toggle:"dropdown"}, height: 60, alt: current_user.email, title: current_user.email %>
+          <div class="navcard dropdown-menu p-0 dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+            <div class="info px-4 pt-4">
+              <h5 class="colored"><%= current_user.name%></h5>
+                <p>Вік: <span>24</span></p>
+                <p>Працює від: <span><%= current_user.created_at.strftime("%d.%m.%Y")%></span></p>
+                <p>Посада: <span><%= current_user.position%></span></p>
+                <p>Виконані проекти: <span><%= current_user.projects.finished.count%></span></p>
+                <p class="mb-4">Всього проектів: <span><%= current_user.projects.count%></span></p>
+            </div>
+            <div class="exit mt-auto p-0 w-100 text-center">
+              <%= link_to destroy_user_session_path, class:"colored nav-link", method: :delete do%>
+              Вихід
+              <%end%>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="bottom_of_navbar d-flex align-items-center ">
+  <div class="container">
+    <ul class="navbar-nav flex-sm-row">
+      <li class="nav-item nav-item__margin ">
+        <%= link_to root_path, class:"nav-link"  do %>
+        Головна
+        <%end%>
+      </li>
+      <li class="nav-item nav-item__margin ">
+        <%= link_to projects_path, class:"nav-link"  do %>
+        Проекти
+        <%end%>
+      </li>
+      <li class="nav-item nav-item__margin ">
+        <%= link_to users_path, class:"nav-link"  do %>
+        Персонал
+        <%end%>
+      </li>
+    </ul>
+  </div>
+</div>

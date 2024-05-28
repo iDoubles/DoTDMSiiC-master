@@ -1,0 +1,30 @@
+<h1 class="Box__maintitle mt-5 mb-2">
+  <%=@project.name%><%= image_tag "info-circle.svg", class:"pointer ms-2", width:24, height:24, data: { bs_toggle: "modal", bs_target: "#projectModal"} %>
+</h1>
+<div class="d-flex justify-content-between">
+  <div class="Box__grey_text d-flex align-items-center">
+    Учасники:
+    <%= render partial: "user", collection: @users %>
+  </div>
+  <div class="Box__infotxt Box__colored">
+    <%=@project.budget%>$
+  </div>
+</div>
+<div class="row Box Box__hs mt-4 mx-0 p-5" role="group">
+  <%= render @topics %>
+</div>
+<%#= render "topics/form", topic: Topic.new %>
+<!-- Modal -->
+<div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+    <div class="modal_content modal_content__padding">
+      <div class="modal_header">
+        <h5 class="my-0 modal_title " id="projectModalLabel"><%=@project.name%></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal_body">
+        <p class="modal_desc"><%= raw @project.description%></p>
+      </div>
+    </div>
+  </div>
+</div>

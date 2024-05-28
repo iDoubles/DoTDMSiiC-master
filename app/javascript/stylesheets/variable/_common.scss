@@ -1,0 +1,134 @@
+body {
+  max-width: 1920px;
+  margin: auto;
+  min-width: 320px;
+  color: $color-black;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  font-family: $font-primary;
+  background-color: $background;
+  -webkit-text-size-adjust: 100%;
+  position: relative;
+  overflow-x: hidden;
+}
+
+a{
+  text-decoration: none;
+  color: $color-primary-dark;
+  transition: all .5s ease-in;
+  &:hover{
+    color: $color-primary-base;
+  }
+}
+
+p{
+  font-size: $font-size-mobile;
+}
+
+span{
+  font-size: $font-size-base;
+  font-weight: 700;
+}
+
+.Registration_page{
+  height: 100vh;
+  overflow: hidden;
+  background: url("/bg.jpeg") no-repeat center/cover;
+}
+
+.password_small{
+  font-size:13px;
+  color: rgba(0, 0, 0, 0.37); 
+}
+
+.Login_page{
+  height: 100vh;
+  overflow: hidden;
+  background: url("/bg.jpeg") no-repeat center/cover;
+}
+
+.form-control{
+  border-radius: 10px;
+  border: 1px solid $color-neutral-line;
+}
+
+.custom-checkbox {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+
+  &+label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      flex-shrink: 0;
+      flex-grow: 0;
+      border: 1px solid $color-neutral-line;
+      border-radius: 0;
+      margin-right: 0.5em;
+      background-color: $background-white;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 50% 50%;
+    }
+  }
+
+  &:checked+label::before {
+    border-color: $color-primary-dark;
+    background-color: $color-primary-dark;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath width='14px' height='14px' fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+  }
+}
+
+tbody{
+  tr{
+    td:first-child{
+      position: sticky;
+      left: 0;
+      background-color: $background;
+    }
+  }
+}
+
+.my-project-title{
+  color: $color-primary-dark;
+  text-align: center;
+}
+
+.bage{
+  background: $color-neutral-text;
+  position: absolute;
+  padding: 7px 12px;
+  font-weight: 500;
+  font-size: 1rem;
+  border-radius:5px;
+
+  &__bottom{
+    margin: auto;
+    bottom: 20px;
+  }
+
+  &__top{
+   top: 30px;
+   right: 30px;
+
+  }
+}
+
+.pointer{
+  cursor: pointer;
+}
+
+.disable{
+  pointer-events: none;
+}
+
+.color__gray{
+  color: $color-neutral-text;
+}

@@ -1,0 +1,17 @@
+<li class="splide__slide w-auto">
+  <div class="Box Box__usercard me-3 col-12 col-md-2">
+    <div class="inner_info p-3">
+      <%= link_to user, class:"img_title d-flex mb-2" do %>
+        <%= image_tag "/user.svg", height: 70, alt: user.email, title: user.email %>
+        <h5 class="text-center ms-3 my-auto text-break "><%= user.name %></h5>
+      <%end%>
+      <div class="info_list">
+        <p>Вік: <span>24</span></p>
+        <p>Працює від: <span><%= user.created_at.strftime("%d.%m.%Y")%></span></p>
+        <p>Посада: <span><%= user.position%></span></p>
+        <p>Виконані проекти: <span><%= user.projects.finished.count%></span></p>
+        <p>Всього проектів: <span><%= user.projects.count%></span></p>
+      </div>
+    </div>
+  </div>
+</li>
